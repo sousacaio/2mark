@@ -1,3 +1,4 @@
+import { User } from 'src/users/entities/user.entity';
 import {
   BaseEntity,
   Column,
@@ -5,15 +6,16 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm';
 
 @Entity()
 export class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
-  @Column()
-  id_user: number;
+  @ManyToOne(() => User, (user) => user.id)
+  user: User;
 
   @Column({ unique: true })
   name: string;
