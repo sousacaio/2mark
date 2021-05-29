@@ -13,7 +13,9 @@ export class UsersService {
   }
 
   async findAll(): Promise<User[]> {
-    return User.find();
+    return User.find({
+      select: ['id', 'name', 'email', 'createdAt', 'updatedAt'],
+    });
   }
 
   async findOne(id: number): Promise<User> {
