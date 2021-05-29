@@ -4,6 +4,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
+import { User } from './users/entities/user.entity';
+
+const entities = [User];
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -11,6 +14,7 @@ import { UsersModule } from './users/users.module';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
+      entities: entities,
       synchronize: true, //tirar essa option depois
     }),
     UsersModule,
