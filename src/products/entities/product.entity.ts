@@ -21,7 +21,7 @@ export class Product extends BaseEntity {
   name: string;
 
   @Column()
-  price: string;
+  price: number;
 
   @Column()
   @CreateDateColumn()
