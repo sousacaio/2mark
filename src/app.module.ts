@@ -7,8 +7,9 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
+import { Product } from './products/entities/product.entity';
 
-const entities = [User];
+const entities = [User, Product];
 @Module({
   imports: [
     ConfigModule.forRoot(),
