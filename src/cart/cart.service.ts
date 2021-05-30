@@ -11,9 +11,13 @@ export class CartService {
   }
 
   async findAll(): Promise<Cart[]> {
-    return await Cart.find({
+    const res = await Cart.find({
       relations: ['user', 'product'],
     });
+    res.forEach((products) => {
+      delete products.user.password;
+    });
+    return res;
   }
 
   async findByUser(id: number): Promise<Cart[]> {
