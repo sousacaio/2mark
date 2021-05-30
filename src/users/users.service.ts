@@ -32,4 +32,12 @@ export class UsersService {
       },
     });
   }
+
+  async findByName(name: string) {
+    return await User.findOne({
+      where: {
+        name: name,
+      },
+    });
+  }
 }
