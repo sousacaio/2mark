@@ -9,23 +9,24 @@ import {
 } from '@nestjs/common';
 import { CartService } from './cart.service';
 import { CreateCartDto } from './dto/create-cart.dto';
+import { Cart } from './entities/cart.entity';
 
 @Controller('cart')
 export class CartController {
   constructor(private readonly cartService: CartService) {}
 
   @Post()
-  create(@Body() createCartDto: CreateCartDto) {
+  async create(@Body() createCartDto: CreateCartDto): Promise<Cart> {
     return this.cartService.create(createCartDto);
   }
 
   @Get()
-  findAll() {
+  async findAll(): Promise<Cart[]> {
     return this.cartService.findAll();
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number) {
+  async remove(@Param('id') id: number): Promise<any> {
     return this.cartService.remove(id);
   }
 
