@@ -1,26 +1,30 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCartDto } from './dto/create-cart.dto';
-import { UpdateCartDto } from './dto/update-cart.dto';
+import { Cart } from './entities/cart.entity';
 
 @Injectable()
 export class CartService {
-  create(createCartDto: CreateCartDto) {
-    return 'This action adds a new cart';
+  async create(createCartDto: CreateCartDto): Promise<Cart> {
+    const cart = Cart.create(createCartDto);
+    await cart.save();
+    return cart;
   }
 
-  findAll() {
-    return `This action returns all cart`;
+  async findAll(): Promise<Cart[]> {
+    return await Cart.find({
+      relations: ['user', 'product'],
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} cart`;
+  async findByUser(id: number): Promise<Cart[]> {
+    return await Cart.find({ where: { user: id } });
   }
 
-  update(id: number, updateCartDto: UpdateCartDto) {
-    return `This action updates a #${id} cart`;
+  async findByProduct(id: number): Promise<Cart[]> {
+    return await Cart.find({ where: { product: id } });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} cart`;
+  async remove(id: number): Promise<any> {
+    return await Cart.delete(id);
   }
 }
