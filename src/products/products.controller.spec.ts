@@ -5,7 +5,7 @@ import { ProductsService } from './products.service';
 describe('ProductsController', () => {
   let productController: ProductsController;
   let productService: ProductsService;
-  const productExample = [
+  const productsExample = [
     {
       id: 0,
       name: 'product_name',
@@ -13,6 +13,12 @@ describe('ProductsController', () => {
       user: 2,
     },
   ] as unknown as Product[];
+
+  const product = {
+    id: 0,
+    name: 'valid_name',
+    price: 50,
+  } as Product;
   beforeEach(async () => {
     productService = new ProductsService();
     productController = new ProductsController(productService);
@@ -36,9 +42,19 @@ describe('ProductsController', () => {
   });
 
   it('should call findAll method', async () => {
-    const result = new Promise<Product[]>((resolve) => resolve(productExample));
+    const result = new Promise<Product[]>((resolve) =>
+      resolve(productsExample),
+    );
     const spy = jest.spyOn(productService, 'findAll').mockReturnValue(result);
     const response = await productController.findAll();
+    expect(response).not.toBeNull();
+    expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+  it('should call findOne method', async () => {
+    const result = new Promise<Product>((resolve) => resolve(product));
+    const spy = jest.spyOn(productService, 'findOne').mockReturnValue(result);
+    const response = await productController.findOne(0);
     expect(response).not.toBeNull();
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledTimes(1);
