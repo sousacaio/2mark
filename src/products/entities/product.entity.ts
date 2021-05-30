@@ -1,5 +1,5 @@
-import { Cart } from 'src/cart/entities/cart.entity';
-import { User } from 'src/users/entities/user.entity';
+import { Cart } from '../../cart/entities/cart.entity';
+import { User } from '../../users/entities/user.entity';
 import {
   BaseEntity,
   Column,

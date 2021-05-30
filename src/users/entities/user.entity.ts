@@ -9,8 +9,8 @@ import {
   OneToMany,
 } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
-import { Product } from 'src/products/entities/product.entity';
-import { Cart } from 'src/cart/entities/cart.entity';
+import { Product } from '../../products/entities/product.entity';
+import { Cart } from '../../cart/entities/cart.entity';
 
 @Entity()
 export class User extends BaseEntity {
