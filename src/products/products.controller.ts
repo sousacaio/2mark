@@ -18,26 +18,46 @@ export class ProductsController {
 
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto);
+    try {
+      return this.productsService.create(createProductDto);
+    } catch (error) {
+      return error;
+    }
   }
 
   @Get()
   async findAll(): Promise<Product[]> {
-    return await this.productsService.findAll();
+    try {
+      return await this.productsService.findAll();
+    } catch (error) {
+      return error;
+    }
   }
 
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<Product> {
-    return await this.productsService.findOne(id);
+    try {
+      return await this.productsService.findOne(id);
+    } catch (error) {
+      return error;
+    }
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productsService.update(+id, updateProductDto);
+  update(@Param('id') id: number, @Body() updateProductDto: UpdateProductDto) {
+    try {
+      return this.productsService.update(id, updateProductDto);
+    } catch (error) {
+      return error;
+    }
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+    try {
+      return this.productsService.remove(+id);
+    } catch (error) {
+      return error;
+    }
   }
 }
