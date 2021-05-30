@@ -53,4 +53,18 @@ describe('ProductsController', () => {
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledTimes(1);
   });
+
+  it('should call create method', async () => {
+    const spy = jest
+      .spyOn(productService, 'create')
+      .mockReturnValue(new Promise((resolve) => resolve(product)));
+    const response = await productController.create({
+      name: 'valid_name',
+      price: 15,
+      user: 0,
+    });
+    expect(response).not.toBeNull();
+    expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
 });
