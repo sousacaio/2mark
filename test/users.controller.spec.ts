@@ -12,7 +12,7 @@ describe('UsersController', () => {
 
   it('Should throw an error when there are no correct values', async () => {
     it('should return an array of cats', async () => {
-      const result = 'test';
+      const result = 'tests';
       jest
         .spyOn(userService, 'findAll')
         .mockImplementation(() => Promise.reject(result));
