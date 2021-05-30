@@ -68,4 +68,17 @@ describe('UsersController', () => {
     expect(spy).toHaveBeenCalled();
     expect(spy).toHaveBeenCalledTimes(1);
   });
+
+  it('should call findByName method on create user', async () => {
+    jest
+      .spyOn(userService, 'findByEmail')
+      .mockReturnValue(new Promise<User>((resolve) => resolve(null)));
+    const spy = jest
+      .spyOn(userService, 'findByName')
+      .mockReturnValue(new Promise<User>((resolve) => resolve(user)));
+    const response = await userController.create(user);
+    expect(response).not.toBeNull();
+    expect(spy).toHaveBeenCalled();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
 });
