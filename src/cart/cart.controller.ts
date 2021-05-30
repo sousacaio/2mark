@@ -17,21 +17,37 @@ export class CartController {
 
   @Post()
   async create(@Body() createCartDto: CreateCartDto): Promise<Cart> {
-    return this.cartService.create(createCartDto);
+    try {
+      return this.cartService.create(createCartDto);
+    } catch (error) {
+      return error;
+    }
   }
 
   @Get()
   async findAll(): Promise<Cart[]> {
-    return this.cartService.findAll();
+    try {
+      return this.cartService.findAll();
+    } catch (error) {
+      return error;
+    }
   }
 
   @Delete(':id')
   async remove(@Param('id') id: number): Promise<any> {
-    return this.cartService.remove(id);
+    try {
+      return this.cartService.remove(id);
+    } catch (error) {
+      return error;
+    }
   }
 
   @Patch(':id')
   async patch(@Param('id') id: number, @Body() body: any): Promise<any> {
-    return await this.cartService.updateQuantity(id, body.quantity);
+    try {
+      return await this.cartService.updateQuantity(id, body.quantity);
+    } catch (error) {
+      return error;
+    }
   }
 }
