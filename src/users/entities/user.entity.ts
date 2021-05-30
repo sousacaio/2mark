@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
 import { Product } from 'src/products/entities/product.entity';
+import { Cart } from 'src/cart/entities/cart.entity';
 
 @Entity()
 export class User extends BaseEntity {
@@ -35,6 +36,9 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Product, (product) => product.user)
   products: Product[];
+
+  @OneToMany(() => Cart, (cart) => cart.user)
+  cart: Cart[];
 
   @BeforeInsert()
   async hashPassword() {

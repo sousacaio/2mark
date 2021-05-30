@@ -1,3 +1,4 @@
+import { Cart } from 'src/cart/entities/cart.entity';
 import { User } from 'src/users/entities/user.entity';
 import {
   BaseEntity,
@@ -7,6 +8,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -16,6 +18,9 @@ export class Product extends BaseEntity {
 
   @ManyToOne(() => User, (user) => user.products)
   user: User;
+
+  @OneToMany(() => Cart, (cart) => cart.product)
+  cart: Cart[];
 
   @Column({ unique: true })
   name: string;
