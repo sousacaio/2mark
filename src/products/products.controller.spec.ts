@@ -33,12 +33,6 @@ describe('ProductsController', () => {
     it('Must exist findOne function', () => {
       expect(typeof productController.findOne).toBe('function');
     });
-    it('Must exist remove function', () => {
-      expect(typeof productController.remove).toBe('function');
-    });
-    it('Must exist update function', () => {
-      expect(typeof productController.update).toBe('function');
-    });
   });
 
   it('should call findAll method', async () => {

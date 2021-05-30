@@ -25,12 +25,4 @@ export class ProductsService {
   async findOne(id: number): Promise<Product> {
     return await Product.findOne(id);
   }
-
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} product`;
-  }
 }

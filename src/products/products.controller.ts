@@ -42,22 +42,4 @@ export class ProductsController {
       return error;
     }
   }
-
-  @Patch(':id')
-  update(@Param('id') id: number, @Body() updateProductDto: UpdateProductDto) {
-    try {
-      return this.productsService.update(id, updateProductDto);
-    } catch (error) {
-      return error;
-    }
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    try {
-      return this.productsService.remove(+id);
-    } catch (error) {
-      return error;
-    }
-  }
 }
