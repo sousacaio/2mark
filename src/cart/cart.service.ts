@@ -31,4 +31,11 @@ export class CartService {
   async remove(id: number): Promise<any> {
     return await Cart.delete(id);
   }
+
+  async updateQuantity(id: number, quantity: number): Promise<any> {
+    const cart = await Cart.findOne({ where: { user: id } });
+    cart.quantity = quantity;
+    await cart.save();
+    return cart;
+  }
 }
