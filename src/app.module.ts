@@ -8,8 +8,10 @@ import { User } from './users/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { Product } from './products/entities/product.entity';
+import { CartModule } from './cart/cart.module';
+import { Cart } from './cart/entities/cart.entity';
 
-const entities = [User, Product];
+const entities = [User, Product, Cart];
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -23,6 +25,7 @@ const entities = [User, Product];
     UsersModule,
     AuthModule,
     ProductsModule,
+    CartModule,
   ],
   controllers: [AppController],
   providers: [AppService],
