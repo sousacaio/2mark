@@ -47,6 +47,10 @@ export class UsersController {
 
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<User> {
-    return await this.usersService.findOne(id);
+    try {
+      return this.usersService.findOne(id);
+    } catch (error) {
+      return error;
+    }
   }
 }
