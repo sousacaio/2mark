@@ -14,7 +14,7 @@ export class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @ManyToOne(() => User, (user) => user.id)
+  @ManyToOne(() => User, (user) => user.products)
   user: User;
 
   @Column({ unique: true })
