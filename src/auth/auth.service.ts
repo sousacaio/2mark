@@ -16,9 +16,11 @@ export class AuthService {
     const payload = {
       userId: user.id,
     };
+    delete user.password;
 
     return {
       access_token: this.jwtService.sign(payload),
+      user,
     };
   }
 
