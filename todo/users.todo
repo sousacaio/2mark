@@ -1,0 +1,10 @@
+Users:
+    ☐ Alterar o model de usuários
+    ☐ Criar o model de user_address
+    [] Aplicar o endereço do usuário na rota de criação dele
+    [] Criar rota de update de usuário
+    Aplicar jwt nas rotas:
+        [] findOne
+        [] findAll
+        [] update
+ 

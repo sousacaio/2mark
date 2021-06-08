@@ -1,0 +1,12 @@
+jobs:
+    [] criar modulo jobs
+    criar model:
+        [] jobs
+
+    [] fazer a rota de criação de job(usuario para empresa)
+
+    [] findByUser(jobs daquele usuario)
+    [] findByCompany(jobs daquela empresa)
+    
+    [] update(somente quando precisar ser postponned)
+    [] cancelJob(somente caso o usuário queira cancelar ou a empresa dê um bom motivo para cancelar)

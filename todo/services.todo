@@ -1,0 +1,12 @@
+Services:
+    [] criar o modulo services
+    
+    criar os models:
+        [] services_categories
+        [] services
+
+    [] createServices(somente para empresas)
+    [] findAllServices(pesquisa por multiplos filtros[data,valor,etc])
+    [] findServiceById
+    [] updateService(somente para empresas)
+        

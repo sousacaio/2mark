@@ -1,0 +1,14 @@
+[] Configurar o backend para rodar migrations
+[] Arquitetar um padrão de resposta do servidor
+[] Documentar as rotas que serão alteradas com swagger
+[] Testar as rotas que serão alteradas com jest
+[] Refatorar o token jwt para suportar as roles de usuário
+[] Pesquisar como criar um ambiente de homologação para o software
+[] Criar tabela de log no sistema
+
+modulos:
+    [] auth
+    [] user
+    [] company
+    [] services
+    [] jobs

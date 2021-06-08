@@ -1,0 +1,5 @@
+Auth:
+    [] refatorar o token e os guards para adequar as permissões
+    [] colocar a rota de cadastro aqui
+    [] colocar a rota de recuperação de senha nesse modulo    
+    

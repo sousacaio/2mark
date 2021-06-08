@@ -1,0 +1,22 @@
+Company:
+    [] criar o modulo company
+    criação dos models:
+        [] company
+        [] company_address
+        [] company_settings
+        [] company_contacts[]
+        [] company_type
+
+    [] fazer a rota de cadastro da empresa,pedindo todos os dados
+
+    [] findOne(diferenciando o retorno por perfil)
+    [] findAll(diferenciando o retorno por perfil)
+
+    [] update(somente para o owner da empresa)
+    [] desactivate(somente para o owner da empresa)
+
+    
+
+    
+
+    
